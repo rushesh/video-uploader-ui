@@ -51,7 +51,7 @@ export class VideoUploaderComponent implements OnInit {
     else
     {
     this.name = this.selectedFile.name;
-    console.log(this.selectedFile);
+    // console.log(this.selectedFile);
     this.snackBar.open("File Name : "+this.name,null ,{
       duration:2000,
       horizontalPosition: 'center',
@@ -71,7 +71,7 @@ export class VideoUploaderComponent implements OnInit {
     {
     this.selectedFile = {};
     this.name = ''
-    console.log(this.selectedFile);
+    // console.log(this.selectedFile);
     this.toast.success('Please choose a new video now.', 'File reset.', {
       timeOut: 3000,
     });
@@ -101,7 +101,7 @@ export class VideoUploaderComponent implements OnInit {
     this.http
       .get("http://localhost:3000/status", { headers: headers })
       .subscribe((res: any) => {
-        console.log(JSON.stringify(res));
+        // console.log(JSON.stringify(res));
         if (res.isUploadAlready == 100) {
           this.toast.error(res.status, 'Error', {
             timeOut: 3000,
@@ -109,7 +109,7 @@ export class VideoUploaderComponent implements OnInit {
           return;
         }
         let uploadedBytes = res.uploaded;
-        console.log(uploadedBytes);
+        // console.log(uploadedBytes);
         let headers2 = new HttpHeaders({
           size: this.selectedFile.size.toString(),
           "x-file-id": fileId,
@@ -143,7 +143,7 @@ export class VideoUploaderComponent implements OnInit {
                 })
               }
             } else {
-              console.log(JSON.stringify(res));
+              // console.log(JSON.stringify(res));
               if (this.uploadPercent >= 100) {
                 this.name = "";
                 this.selectedFile = null;
@@ -156,10 +156,10 @@ export class VideoUploaderComponent implements OnInit {
   }
   showVideo(video){
     this.appService.getVideoLink(video).subscribe((res)=>{
-      console.log(res);
+      // console.log(res);
     },
     (err)=>{
-      console.error("Error : "+err);
+      // console.error("Error : "+err);
       
     })
   }

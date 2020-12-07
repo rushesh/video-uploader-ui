@@ -1,0 +1,16 @@
+<div  style="width: 50vw; margin:auto;margin-bottom: 2vh;">
+        <h3>Video Uploader 2</h3>
+    </div>
+<div class="control-section">
+    <div class="col-lg-8">
+        <div class="control_wrapper">
+            <ejs-uploader #chunkupload 
+            id='chunkfileupload' 
+            [maxFileSize] = 'maxFileSize'
+            allowedExtentions='.mp4'
+            [autoUpload]=false [asyncSettings]='path' [dropArea]='dropElement' (pausing)='onPausing($event)' (resuming)='onResuming($event)' (removing)='onFileRemove($event)' (chunkFailure)='onBeforefailure($event)'></ejs-uploader>
+        </div>
+    </div>
+  </div>
+  
+  <!-- [maxFileSize]=104857600  -->
